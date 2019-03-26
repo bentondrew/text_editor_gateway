@@ -10,3 +10,4 @@ docker build -t text_editor_gateway:0.1.0 .
 ## Docker Run Instructions
 ```Bash
 docker run --rm -p 80:80 text_editor_gateway:0.1.0
+```
