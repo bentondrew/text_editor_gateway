@@ -19,7 +19,7 @@ application = Flask(__name__)
 def route_forwarding(path):
     forward_path = ('http://{}/{}')
     host = 'browser-client'
-    forward_path.format(host, path)
+    forward_path = forward_path.format(host, path)
     forward_response = requests.request(
         method=request.method,
         url=forward_path,
@@ -31,4 +31,4 @@ def route_forwarding(path):
         allow_redirects=False)
     return Response(forward_response.content,
                     forward_response.status_code,
-                    forward_response.raw.headers)
+                    headers=forward_response.raw.headers.items())
