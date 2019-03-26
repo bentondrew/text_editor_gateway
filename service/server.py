@@ -19,6 +19,8 @@ application = Flask(__name__)
 def route_forwarding(path):
     forward_path = ('http://{}/{}')
     host = 'browser-client'
+    if 'files' in path:
+        host = 'file-store-api'
     forward_path = forward_path.format(host, path)
     forward_response = requests.request(
         method=request.method,
